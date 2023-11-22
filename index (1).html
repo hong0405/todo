@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 꿈을 이루는 할 일 메모앱</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #fff;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>나의 꿈을 이루는 할 일 메모앱</h1>
+
+    <label for="task">할 일:</label>
+    <input type="text" id="task" placeholder="할 일을 입력하세요">
+
+    <br>
+
+    <label for="date">날짜:</label>
+    <input type="date" id="date">
+
+    <br>
+
+    <button onclick="saveTask()">저장하기</button>
+
+    <script>
+        function saveTask() {
+            // Get task and date values
+            var task = document.getElementById('task').value;
+            var date = document.getElementById('date').value;
+
+            // Check if task is not empty
+            if (task.trim() === '') {
+                alert('할 일을 입력하세요.');
+                return;
+            }
+
+            // Create a new task element
+            var taskElement = document.createElement('p');
+            taskElement.innerHTML = '<strong>' + task + '</strong>' + ' - ' + date;
+
+            // Append task element to the body
+            document.body.appendChild(taskElement);
+
+            // Clear input fields
+            document.getElementById('task').value = '';
+            document.getElementById('date').value = '';
+        }
+    </script>
+</body>
+</html>
